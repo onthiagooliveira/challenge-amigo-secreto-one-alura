@@ -23,8 +23,11 @@
         <section class="input-section">
             <h1 class="main-title">Amigo Secreto</h1>
             <div class="input-wrapper">
-                <input type="text" id="amigo" class="input-name" placeholder="Digite um nome">
-                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+                <form id="form-input-amigo" action="" method="POST">
+                    <input type="text" id="amigo" class="input-name" placeholder="Digite um nome"
+                        pattern="[A-Za-zÀ-ÿ\s]{2,45}" minlength="2" maxlength="45">
+                    <button type="submit" class="button-add">Adicionar</button>
+                </form>
             </div>
 
             <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>

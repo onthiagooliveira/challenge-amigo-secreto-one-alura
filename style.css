@@ -61,7 +61,7 @@ body {
 }
 
 /* Contêineres de entrada e botão */
-.input-wrapper {
+.input-wrapper, form {
   display: flex;
   justify-content: center;
   width: 100%;
