@@ -88,7 +88,6 @@ body {
   flex: 1;
   padding: 10px 15px;
   font-size: 16px;
-
   border: none;
   border-radius: 25px 0 0 25px;
   font-family: "Merriweather", serif;
@@ -124,6 +123,29 @@ ul {
   font-size: 18px;
   margin: 20px 0;
 }
+
+.alert-message {
+  align-items: center;
+  background: #ee9ae5;
+  bottom: 0;
+  font-family: system-ui, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: grid;
+  gap: 12px;
+  grid-auto-flow: column;
+  position: absolute;
+  place-content: center;
+  width: 100dvw;
+  padding: 12px 16px;
+  visibility: hidden; /* começa invisível */
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.alert-message.show {
+  visibility: visible;
+  opacity: 1;
+}
+
 
 .result-list {
   margin-top: 15px;
