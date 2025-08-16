@@ -3,23 +3,19 @@ const formulario = document.getElementById("form-input-amigo");
 let listarEmTela = document.getElementById("listaAmigos");
 const resultado = document.getElementById("resultado");
 
-
 formulario.addEventListener("submit", function (evento) {
   evento.preventDefault();
 
   adicionarAmigo();
-
 });
 
 // Lista de amigos à sortear
 let listaAmigosSecretos = [];
 
-
 // Verificando os dados de input
 function validarEntrada(val) {
   return Boolean(val);
 }
-
 
 // Manipulação de strings
 
@@ -36,6 +32,8 @@ function errorMensagem(section) {
 
   // adiciona a classe para exibir
   section.classList.add("show");
+  section.style.background = "linear-gradient(90deg, #e7a7f0ff 0%, #a178e4ff 100%)";
+
 
   // remove automaticamente depois de 3 segundos
   setTimeout(() => {
@@ -43,21 +41,44 @@ function errorMensagem(section) {
   }, 3000);
 }
 
+function sucessMensagem(section) {
+  // Adiciona um icone e limpa mensagens antigas
+  section.innerHTML = `<img width="24" height="24"
+  src="https://img.icons8.com/material-sharp/24/checkmark--v1.png"
+  alt="checkmark--v1"/>`;
+
+  const p = document.createElement("p");
+  p.textContent = "Amigo adicionado à lista."
+  section.append(p);
+
+  section.classList.add("show");
+  section.style.background = "linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)";
+
+  setTimeout(() => {
+    section.classList.remove("show");
+  }, 3000);
+}
 
 
 // Adiciona um amigo a lista
 function adicionarAmigo() {
-  let inputUser = document.getElementById("amigo").value;
-  let status = validarEntrada(inputUser);
+
+  let inputUser = document.getElementById("amigo");
+  let status = validarEntrada(inputUser.value);
 
   if (status) {
-    const novoAmigo = inputUser;
+    const novoAmigo = inputUser.value;
     listaAmigosSecretos.push(novoAmigo);
+
+    let msgTag = document.getElementById("message");
+    sucessMensagem(msgTag);
     console.log(listaAmigosSecretos);
   } else {
     let msgTag = document.getElementById("message");
     errorMensagem(msgTag);
   }
+
+  inputUser.value = "";
 }
 
 // Função que sorteia um amigo com base na lista de amigos inseridos
