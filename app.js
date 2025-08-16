@@ -7,6 +7,7 @@ const btnSortear = document.getElementById("button-draw");
 formulario.addEventListener("submit", function (evento) {
   evento.preventDefault();
   adicionarAmigo();
+  exibirLista(listaAmigosSecretos);
 });
 
 btnSortear.addEventListener("click", function (evento) {
@@ -64,6 +65,24 @@ function sucessMensagem(section) {
   }, 3000);
 }
 
+function exibirLista(array) {
+  // Limpando elemento antes de iniciar a exibição da lista
+  listarEmTela.innerHTML = `<li>
+  <img width="24" height="24" 
+  src="https://img.icons8.com/sf-ultralight/25/gift.png"
+  alt="gift"/></li>`;
+
+  // Exibe em tela a lista de amigos
+  for (let i = 0; i < array.length; i++) {
+    const value = array[i];
+
+    const li = document.createElement("li");
+    li.append(value);
+
+    listarEmTela.append(li);
+  }
+}
+
 // Adiciona um amigo a lista
 function adicionarAmigo() {
   let inputUser = document.getElementById("amigo");
@@ -87,12 +106,29 @@ function adicionarAmigo() {
 // Sorteia um amigo com base na lista de amigos inseridos
 function sortearAmigo() {
   const comprimentoLista = listaAmigosSecretos.length;
- 
+
   if (comprimentoLista) {
-    const amigoSecreto = parseInt(Math.random() * comprimentoLista -1);
+    const amigoSecreto = parseInt(Math.random() * comprimentoLista - 1);
     const nomeAmigo = listaAmigosSecretos[amigoSecreto];
-    console.log(`Seu amigo secreto é ${nomeAmigo}`);
+
+    const li = document.createElement("li");
+    li.append(`Seu amigo secreto é ${nomeAmigo}`);
+
+    resultado.innerHTML = `
+    <img width="24" height="24"
+    src="https://img.icons8.com/sf-ultralight/25/gift.png"
+    alt="gift"/></li>`;
+    resultado.append(li);
+
+    resultado.classList.add("show");
+    resultado.style.background = "linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%)";
+
+    setTimeout(() => {
+    resultado.classList.remove("show");
+    listaAmigosSecretos = [];
+    listarEmTela.innerHTML = `<li></li>`
+  }, 6000);
   } else {
-    console.log('Não há elementos na lista')
+    errorMensagem(resultado);
   }
 }
