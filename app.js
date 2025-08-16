@@ -108,7 +108,7 @@ function sortearAmigo() {
   const comprimentoLista = listaAmigosSecretos.length;
 
   if (comprimentoLista) {
-    const amigoSecreto = parseInt(Math.random() * comprimentoLista - 1);
+    const amigoSecreto = parseInt(Math.random() * comprimentoLista);
     const nomeAmigo = listaAmigosSecretos[amigoSecreto];
 
     const li = document.createElement("li");
@@ -132,3 +132,4 @@ function sortearAmigo() {
     errorMensagem(resultado);
   }
 }
+
