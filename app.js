@@ -2,11 +2,16 @@
 const formulario = document.getElementById("form-input-amigo");
 let listarEmTela = document.getElementById("listaAmigos");
 const resultado = document.getElementById("resultado");
+const btnSortear = document.getElementById("button-draw");
 
 formulario.addEventListener("submit", function (evento) {
   evento.preventDefault();
-
   adicionarAmigo();
+});
+
+btnSortear.addEventListener("click", function (evento) {
+  evento.preventDefault();
+  sortearAmigo();
 });
 
 // Lista de amigos à sortear
@@ -32,8 +37,8 @@ function errorMensagem(section) {
 
   // adiciona a classe para exibir
   section.classList.add("show");
-  section.style.background = "linear-gradient(90deg, #e7a7f0ff 0%, #a178e4ff 100%)";
-
+  section.style.background =
+    "linear-gradient(90deg, #e7a7f0ff 0%, #a178e4ff 100%)";
 
   // remove automaticamente depois de 3 segundos
   setTimeout(() => {
@@ -48,7 +53,7 @@ function sucessMensagem(section) {
   alt="checkmark--v1"/>`;
 
   const p = document.createElement("p");
-  p.textContent = "Amigo adicionado à lista."
+  p.textContent = "Amigo adicionado à lista.";
   section.append(p);
 
   section.classList.add("show");
@@ -59,10 +64,8 @@ function sucessMensagem(section) {
   }, 3000);
 }
 
-
 // Adiciona um amigo a lista
 function adicionarAmigo() {
-
   let inputUser = document.getElementById("amigo");
   let status = validarEntrada(inputUser.value);
 
@@ -72,13 +75,24 @@ function adicionarAmigo() {
 
     let msgTag = document.getElementById("message");
     sucessMensagem(msgTag);
-    console.log(listaAmigosSecretos);
   } else {
     let msgTag = document.getElementById("message");
     errorMensagem(msgTag);
   }
 
   inputUser.value = "";
+  inputUser.focus();
 }
 
-// Função que sorteia um amigo com base na lista de amigos inseridos
+// Sorteia um amigo com base na lista de amigos inseridos
+function sortearAmigo() {
+  const comprimentoLista = listaAmigosSecretos.length;
+ 
+  if (comprimentoLista) {
+    const amigoSecreto = parseInt(Math.random() * comprimentoLista -1);
+    const nomeAmigo = listaAmigosSecretos[amigoSecreto];
+    console.log(`Seu amigo secreto é ${nomeAmigo}`);
+  } else {
+    console.log('Não há elementos na lista')
+  }
+}
