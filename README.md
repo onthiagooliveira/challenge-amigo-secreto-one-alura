@@ -9,7 +9,7 @@ ONE](https://challenge-amigo-secreto-one-alura.vercel.app/)
 
 ------------------------------------------------------------------------
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 -   ✅ Adicionar nomes de amigos a uma lista.\
 -   ✅ Validação de entrada para evitar nomes vazios.\
@@ -20,7 +20,7 @@ ONE](https://challenge-amigo-secreto-one-alura.vercel.app/)
 
 ------------------------------------------------------------------------
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 -   **index.html** → Estrutura da aplicação (formulário, lista, botão de
     sorteio).\
@@ -29,7 +29,7 @@ ONE](https://challenge-amigo-secreto-one-alura.vercel.app/)
 
 ------------------------------------------------------------------------
 
-## 🖥️ Como Usar
+## Como Usar
 
 1.  Abra o projeto pelo navegador ou acesse diretamente o link
     [aqui](https://challenge-amigo-secreto-one-alura.vercel.app/).\
@@ -46,7 +46,7 @@ ONE](https://challenge-amigo-secreto-one-alura.vercel.app/)
 
 ------------------------------------------------------------------------
 
-## 🔧 Principais Funções do Código
+## Principais Funções do Código
 
 -   **`validarEntrada(val)`** → Verifica se o valor de entrada não está
     vazio.\
@@ -62,7 +62,7 @@ ONE](https://challenge-amigo-secreto-one-alura.vercel.app/)
 
 ------------------------------------------------------------------------
 
-## 📝 Exemplo de Uso
+## Exemplo de Uso
 
 1.  Adicione:
 
